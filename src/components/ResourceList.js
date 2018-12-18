@@ -1,29 +1,8 @@
-import React, { useState, useEffect } from "react";
-import jsonPlaceholder from "../api/jsonPlaceholder";
-
-// If you use an object inside of the useState function - a new object will always be returned. That will cause a re-render infinitely if you use the useEffect function and you're checking it against the object in useState.
+import React from "react";
+import { useResources } from "../hooks";
 
 const ResourceList = ({ resource }) => {
-  const [resources, setResources] = useState([]);
-  const fetchResource = async resource => {
-    try {
-      let response = await jsonPlaceholder(`${resource}`);
-      setResources(response.data);
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // function that we use when we want to get access to lifecycle methods - componentDidMount and componentDidUpdate.
-  // to take advantage of the componentDidUpdate add the resource prop inside of the second parameter of useEffect.
-  useEffect(
-    () => {
-      fetchResource(resource);
-    },
-    [resource]
-  );
-
+  const resources = useResources(resource);
   return (
     <div>
       <h1>Resource:</h1>
