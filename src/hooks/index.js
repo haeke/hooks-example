@@ -25,3 +25,18 @@ export const useResources = resource => {
 
   return resources;
 };
+
+export const useWeather = () => {
+  const [latitude, setLat] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    window.navigator.geolocation.getCurrentPosition(
+      position => setLat(position.coords.latitiude),
+      err => setErrorMessage(err.message),
+      { timeout: 1000 }
+    );
+  }, []);
+
+  return [latitude, errorMessage];
+};
