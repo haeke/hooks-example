@@ -9,7 +9,6 @@ export const useResources = resource => {
     try {
       let response = await jsonPlaceholder(`${resource}`);
       setResources(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
