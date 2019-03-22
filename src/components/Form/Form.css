@@ -1,6 +1,7 @@
 .formContainer {
   background: #cccccc;
   width: 300px;
+  margin: 0 auto;
   padding: 10px;
 }
 .redBorder {

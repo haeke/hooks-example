@@ -29,7 +29,7 @@ const Form = () => {
                 : { visibility: "hidden" }
             }
           >
-            * The First Name Field is Required
+            * {errors.firstName}
           </small>
           <input
             className={`formInput ${errors.firstName && "redBorder"}`}
@@ -50,13 +50,55 @@ const Form = () => {
                 : { visibility: "hidden" }
             }
           >
-            * The Last Name Field is Required
+            * {errors.lastName}
           </small>
           <input
             className={`formInput ${errors.lastName && "redBorder"}`}
             type="text"
             name="lastName"
             value={values.lastName || ""}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="formWrapper">
+          <label htmlFor="Email Address" className="formLabel">
+            Email Address
+          </label>
+          <small
+            style={
+              errors.email
+                ? { visibility: "visible", color: "red" }
+                : { visibility: "hidden" }
+            }
+          >
+            * {errors.email}
+          </small>
+          <input
+            className={`formInput ${errors.email && "redBorder"}`}
+            type="email"
+            name="email"
+            value={values.email || ""}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="formWrapper">
+          <label htmlFor="Email Address" className="formLabel">
+            Description
+          </label>
+          <small
+            style={
+              errors.description
+                ? { visibility: "visible", color: "red" }
+                : { visibility: "hidden" }
+            }
+          >
+            * {errors.description}
+          </small>
+          <textarea
+            className={`formInput ${errors.description && "redBorder"}`}
+            type="desciption"
+            name="description"
+            value={values.description || ""}
             onChange={handleChange}
           />
         </div>

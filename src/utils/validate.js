@@ -8,5 +8,13 @@ export const validate = values => {
     errors.lastName = "The Last Name Field is required.";
   }
 
+  if (!values.email) {
+    errors.email = "An Email is required.";
+  }
+
+  if (!values.description) {
+    errors.description = "A Description is required.";
+  }
+
   return errors;
 };
