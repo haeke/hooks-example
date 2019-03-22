@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResourceList from "./ResourceList";
 import UserList from "./UserList";
 import Weather from "./Weather";
+import Form from "./Form/Form";
 
 const App = () => {
   // resource is the state value - setResource is the call back that will change resource.
@@ -34,6 +35,7 @@ const App = () => {
             }}
           />
           <Route exact path="/weather" component={Weather} />
+          <Route exact path="/form" component={Form} />
         </Switch>
       </Router>
     </div>
