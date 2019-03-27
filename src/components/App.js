@@ -4,6 +4,7 @@ import ResourceList from "./ResourceList";
 import UserList from "./UserList";
 import Weather from "./Weather";
 import Form from "./Form/Form";
+import Toggle from "./Toggle/Toggle";
 
 const App = () => {
   // resource is the state value - setResource is the call back that will change resource.
@@ -36,6 +37,17 @@ const App = () => {
           />
           <Route exact path="/weather" component={Weather} />
           <Route exact path="/form" component={Form} />
+          <Route
+            exact
+            path="/toggle"
+            component={() => (
+              <Toggle onToggle={on => console.log(on)}>
+                <Toggle.On>The button is on</Toggle.On>
+                <Toggle.Off>The button is off</Toggle.Off>
+                <Toggle.Button />
+              </Toggle>
+            )}
+          />
         </Switch>
       </Router>
     </div>

@@ -32,11 +32,9 @@ export const useWeather = () => {
 
   useEffect(() => {
     window.navigator.geolocation.getCurrentPosition(
-      position => setLat(position.coords.latitiude),
-      err => setErrorMessage(err.message),
-      { timeout: 1000 }
+      position => setLat(position.coords.latitude),
+      err => setErrorMessage(err.message)
     );
   }, []);
-
   return [latitude, errorMessage];
 };
